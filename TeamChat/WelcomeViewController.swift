@@ -36,11 +36,20 @@ class WelcomeViewController: UIViewController{
     
     private func titleLabelSetup(){
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = .boldSystemFont(ofSize: 18)
+        titleLabel.font = .boldSystemFont(ofSize: 50)
         titleLabel.textColor = .black
-        titleLabel.text = "TeamChat"
+        titleLabel.text = ""
+        let titleText = "🫂TeamChat"
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
+        var charIndex = 0.0
+        for letter in titleText{
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
+                self.titleLabel.text?.append(letter)
+                
+            }
+            charIndex += 1
+        }
         view.addSubview(titleLabel)
     }
     

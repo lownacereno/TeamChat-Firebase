@@ -1,4 +1,7 @@
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import FirebaseFirestore
 
 class LoginViewController: UIViewController{
     
@@ -68,9 +71,19 @@ class LoginViewController: UIViewController{
     }
     
     @objc func registerButtonAction(){
-        let chatVC = ChatViewController(dataSourceTable: ChatTableViewDataSource(), delegateTable: ChatTableViewDelegate())
-        navigationController?.pushViewController(chatVC, animated: true)
+        let chatVC = ChatViewController(dataSourceTable: ChatTableViewDataSource(), delegateTable: ChatTableViewDelegate())        
+        guard let email = emailTF.text, let password = passwordTF.text else {return}
         
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .destructive)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                self.navigationController?.pushViewController(chatVC, animated: true)
+            }
+        }
     }
 }
- 
+

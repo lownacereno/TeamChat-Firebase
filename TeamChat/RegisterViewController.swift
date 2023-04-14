@@ -1,4 +1,7 @@
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController{
     
@@ -20,7 +23,6 @@ class RegisterViewController: UIViewController{
     }
     
     private func constraintsSetup(){
-        
         NSLayoutConstraint.activate([
             emailTF.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             emailTF.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 12),
@@ -69,7 +71,17 @@ class RegisterViewController: UIViewController{
     
     @objc func registerButtonAction(){
         let chatVC = ChatViewController(dataSourceTable: ChatTableViewDataSource(), delegateTable: ChatTableViewDelegate())
-        navigationController?.pushViewController(chatVC, animated: true)
+        guard let email = emailTF.text, let password = passwordTF.text else {return}
         
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error{
+                let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .destructive)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                self.navigationController?.pushViewController(chatVC, animated: true)
+            }
+        }
     }
 }
