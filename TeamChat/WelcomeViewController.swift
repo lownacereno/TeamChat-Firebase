@@ -37,7 +37,7 @@ class WelcomeViewController: UIViewController{
     private func titleLabelSetup(){
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = .boldSystemFont(ofSize: 50)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .init(red: 255/255.0, green: 158/255.0, blue: 158/255.0, alpha: 1)
         titleLabel.text = ""
         let titleText = "🫂TeamChat"
         titleLabel.textAlignment = .left
@@ -55,8 +55,9 @@ class WelcomeViewController: UIViewController{
     
     private func registerButtonSetup(){
         
-        registerButton.backgroundColor = .blue
+        registerButton.backgroundColor = .init(red: 192/255.0, green: 238/255.0, blue: 228/255.0, alpha: 1)
         registerButton.setTitle("Registrarse", for: .normal)
+        registerButton.setTitleColor(.init(red: 255/255.0, green: 158/255.0, blue: 158/255.0, alpha: 1), for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
         registerButton.layer.cornerRadius = 15
         registerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -71,8 +72,9 @@ class WelcomeViewController: UIViewController{
     
     private func loginButtonSetup(){
         
-        loginButton.backgroundColor = .blue
+        loginButton.backgroundColor = .init(red: 248/255.0, green: 249/255.0, blue: 136/255.0, alpha: 1)
         loginButton.setTitle("Iniciar sesión", for: .normal)
+        loginButton.setTitleColor(.init(red: 255/255.0, green: 158/255.0, blue: 158/255.0, alpha: 1), for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         loginButton.layer.cornerRadius = 15
         loginButton.translatesAutoresizingMaskIntoConstraints = false

@@ -1,4 +1,7 @@
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 class ChatViewController: UIViewController{
     
@@ -7,6 +10,11 @@ class ChatViewController: UIViewController{
     private let delegate : ChatTableViewDelegate?
     private let messageTF = UITextField()
     private let sendPressed = UIButton()
+    var message: [Message] = [
+    Message(sender: "1@2.com", body: "Hola"),
+    Message(sender: "a@b.com", body: "Hola, como estas?"),
+    Message(sender: "1@2.com", body: "bien y tu?")
+    ]
     
     init(dataSourceTable: ChatTableViewDataSource, delegateTable: ChatTableViewDelegate){
         self.dataSource = dataSourceTable
@@ -24,7 +32,19 @@ class ChatViewController: UIViewController{
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
         view.backgroundColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cerrar Sesión", style: .plain, target: self, action: #selector(LogOut))
+        navigationItem.hidesBackButton = true
+        title = "🫂TeamChat"
         initViews()
+    }
+    
+    @objc func LogOut(){
+       do {
+         try Auth.auth().signOut()
+           self.navigationController?.popToRootViewController(animated: true)
+       } catch let signOutError as NSError {
+         print("Error signing out: %@", signOutError)
+       }
     }
     
     private func initViews(){

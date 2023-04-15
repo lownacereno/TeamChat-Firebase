@@ -11,14 +11,14 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .init(red: 248/255.0, green: 249/255.0, blue: 136/255.0, alpha: 1)
         initView()
     }
     
     private func initView(){
         textFieldSetup(textField: emailTF, placeholder: "email", type: "email")
         textFieldSetup(textField: passwordTF, placeholder: "password", type: "password")
-        registerButtonSetup()
+        loginButtonSetup()
         constraintsSetup()
     }
     
@@ -60,18 +60,18 @@ class LoginViewController: UIViewController{
         view.addSubview(textField)
     }
     
-    private func registerButtonSetup(){
+    private func loginButtonSetup(){
         
-        loginButton.backgroundColor = .blue
+        loginButton.backgroundColor = .init(red: 255/255.0, green: 202/255.0, blue: 200/255.0, alpha: 1)
         loginButton.setTitle("Iniciar sesión", for: .normal)
-        loginButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         loginButton.layer.cornerRadius = 15
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginButton)
     }
     
-    @objc func registerButtonAction(){
-        let chatVC = ChatViewController(dataSourceTable: ChatTableViewDataSource(), delegateTable: ChatTableViewDelegate())        
+    @objc func loginButtonAction(){
+        let chatVC = ChatViewController(dataSourceTable: ChatTableViewDataSource(), delegateTable: ChatTableViewDelegate())
         guard let email = emailTF.text, let password = passwordTF.text else {return}
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in

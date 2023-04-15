@@ -11,7 +11,7 @@ class RegisterViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .init(red: 192/255.0, green: 238/255.0, blue: 228/255.0, alpha: 1)
         initView()
     }
     
@@ -61,7 +61,7 @@ class RegisterViewController: UIViewController{
     
     private func registerButtonSetup(){
         
-        registerButton.backgroundColor = .blue
+        registerButton.backgroundColor = .init(red: 255/255.0, green: 202/255.0, blue: 200/255.0, alpha: 1)
         registerButton.setTitle("Registrarse", for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
         registerButton.layer.cornerRadius = 15

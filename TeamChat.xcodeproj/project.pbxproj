@@ -21,6 +21,7 @@
 		143BDFF329E7BAD1000C0EBB /* ChatTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BDFF229E7BAD1000C0EBB /* ChatTableViewDataSource.swift */; };
 		143BDFF529E7BADE000C0EBB /* ChatTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BDFF429E7BADE000C0EBB /* ChatTableViewDelegate.swift */; };
 		143BDFF729E8D11D000C0EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 143BDFF629E8D11D000C0EBB /* GoogleService-Info.plist */; };
+		1487C61D29EA33E3006F9B20 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487C61C29EA33E3006F9B20 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		143BDFF229E7BAD1000C0EBB /* ChatTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewDataSource.swift; sourceTree = "<group>"; };
 		143BDFF429E7BADE000C0EBB /* ChatTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewDelegate.swift; sourceTree = "<group>"; };
 		143BDFF629E8D11D000C0EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1487C61C29EA33E3006F9B20 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		20FEDAA1FF703031A0AFEBA9 /* Pods_TeamChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E4BA355B65965A2D2B7386 /* Pods-TeamChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamChat.release.xcconfig"; path = "Target Support Files/Pods-TeamChat/Pods-TeamChat.release.xcconfig"; sourceTree = "<group>"; };
 		F6376660B25A11D3C1C6BBCA /* Pods-TeamChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamChat.debug.xcconfig"; path = "Target Support Files/Pods-TeamChat/Pods-TeamChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		143BDFD429E7AF0A000C0EBB /* TeamChat */ = {
 			isa = PBXGroup;
 			children = (
+				1487C61B29EA33D2006F9B20 /* Model */,
 				143BDFF129E7BAB1000C0EBB /* Chat */,
 				143BDFD529E7AF0A000C0EBB /* AppDelegate.swift */,
 				143BDFD729E7AF0A000C0EBB /* SceneDelegate.swift */,
@@ -101,6 +104,14 @@
 				143BDFF429E7BADE000C0EBB /* ChatTableViewDelegate.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		1487C61B29EA33D2006F9B20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1487C61C29EA33E3006F9B20 /* Message.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CD77F3A749B58893B927A71D /* Frameworks */ = {
@@ -243,6 +254,7 @@
 				143BDFF529E7BADE000C0EBB /* ChatTableViewDelegate.swift in Sources */,
 				143BDFEA29E7AF3E000C0EBB /* WelcomeViewController.swift in Sources */,
 				143BDFD629E7AF0A000C0EBB /* AppDelegate.swift in Sources */,
+				1487C61D29EA33E3006F9B20 /* Message.swift in Sources */,
 				143BDFF329E7BAD1000C0EBB /* ChatTableViewDataSource.swift in Sources */,
 				143BDFD829E7AF0A000C0EBB /* SceneDelegate.swift in Sources */,
 			);
